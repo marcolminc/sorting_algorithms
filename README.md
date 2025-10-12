@@ -83,4 +83,10 @@
 
 #### Tasks
 
-1. 0.Bubble sort: write a function that sorts an array of integers in ascending order using the Bubble sort algorithm
+1. 0.Bubble sort: write a function that sorts an array of integers in ascending order using the *Bubble sort algorithm*
+2. 1.Insertion sort list:
+3. 2.Selection sort: write a function that sorts an array of integers in ascending order using the *Selection sort* algorithm
+*
+2. 1.Insertion sort list:
+3. 2.Selection sort: write a function that sorts an array of integers in ascending order using the *Selection sort* algorithm
+
