@@ -6,7 +6,7 @@
  * @array: the array
  * @a: first variable
  * @b: second variable
- *
+ * @size: size of the whole array being sorted
  * Return: nothing
  * NB: prints the (whole) array after every swap
  */
@@ -28,6 +28,7 @@ void swap_array(int *array, const int a, const int b, size_t size)
  * @array: the (sub) array to partition
  * @lo: lower bound
  * @hi: higher bound
+ * @size: size of the whole array being sorted
  *
  * Return: final index for current pivot value
  */
@@ -50,11 +51,12 @@ int partition(int *array, int lo, int hi, size_t size)
 
 
 /**
- * quick_sort_helper - recursive helper for quick sorting with lomuto partition scheme
+ * quick_sort_helper - recursive helper for quick sorting with lomuto partition
+ * scheme
  * @array: the (sub)array to sort
- * lo: lower bound of the (sub)array
- * hi: higher bound of the (sub)array
- * size: size of the whole array - for printing in case of swapping
+ * @lo: lower bound of the (sub)array
+ * @hi: higher bound of the (sub)array
+ * @size: size of the whole array - for printing in case of swapping
  *
  * Return: nothing
  */
