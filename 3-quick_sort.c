@@ -14,7 +14,7 @@ void swap_array(int *array, const int a, const int b, size_t size)
 {
 	int temp;
 
-	if (a == b)
+	if (a == b || array[a] == array[b])
 		return;
 	temp = array[a];
 	array[a] = array[b];
