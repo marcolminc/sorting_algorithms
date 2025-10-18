@@ -90,4 +90,5 @@
 2. 1.Insertion sort list: write a function that sorts a doubly linked list of integers in ascending order using the *Insertion sort* algorithm
 3. 2.Selection sort: write a function that sorts an array of integers in ascending order using the *Selection sort* algorithm
 4. 3.Quick sort: write a function that sorts an array of integers in ascending order using the *Quick sort* algorithm
+5. 4.Shell sort -Knuth Sequence: write a function that sorts an array of integers in ascending order using the *Knuth sequence algorithm*
 
