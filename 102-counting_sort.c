@@ -13,7 +13,7 @@ int *init_array(size_t max)
 
 	res = malloc((max + 1) * sizeof(int));
 	if (res)
-		for (i = 0; i < max + 1; i++)
+		for (i = 0; i < (int)max + 1; i++)
 			res[i] = 0;
 	return ((res) ? res : NULL);
 }
@@ -72,7 +72,7 @@ void counting_sort(int *array, size_t size)
 		free(count);
 		exit(98);
 	}
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (int)size; i++)
 		count[array[i]]++;
 	for (i = 1; i <= max; i++)
 		count[i] += count[i - 1];
@@ -83,7 +83,7 @@ void counting_sort(int *array, size_t size)
 		count[j]--;
 		res[count[j]] = array[i];
 	}
-	for (i = 0; i < size; i++)
+	for (i = 0; i < (int)size; i++)
 		array[i] = res[i];
 	free(res);
 	free(count);
