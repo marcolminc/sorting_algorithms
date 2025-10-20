@@ -94,4 +94,6 @@
 6. 5.Cocktail sort:
 7. 6.Counting sort: Write a function that sorts an array of integers in 
 ascending order using the Counting sort algorithm
+8. 7.
+9. 8.Heap sort: write a function that sorts an array of integers in ascending order using the Heap sort algorithm
 
