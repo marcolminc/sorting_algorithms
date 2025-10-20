@@ -96,4 +96,5 @@
 ascending order using the Counting sort algorithm
 8. 7.
 9. 8.Heap sort: write a function that sorts an array of integers in ascending order using the Heap sort algorithm
+10. 9.Radix sort: write a function that sorts an array of integers in ascending order using the Radix sort algorithm (LSD)
 
