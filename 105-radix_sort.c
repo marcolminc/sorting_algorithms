@@ -27,6 +27,7 @@ int max_element(const int *array, size_t size)
  * @array: the array given to sort
  * @size: size of array
  * @exp: determinant of significant digit position
+ * @max: largest integer element in the input array
  *
  * Return: nothing
  */
