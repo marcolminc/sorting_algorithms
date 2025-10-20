@@ -42,7 +42,7 @@ void counting_sort_lsd(int *array, size_t size, int exp, int max)
 		count[(array[i] / exp) % 10]++;
 	for (i = 1; i < 10; i++)
 		count[i] += count[i - 1];
-	for (i = size - 1; i < max; i--)
+	for (i = size - 1; i < (size_t)max; i--)
 	{
 		res[count[(array[i] / exp) % 10] - 1] = array[i];
 		count[(array[i] / exp) % 10]--;
