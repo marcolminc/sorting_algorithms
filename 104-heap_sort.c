@@ -2,25 +2,20 @@
 
 
 /**
- * swap_ints - swaps values of two integer array elements and print it incase
+ * swap_ints - swaps values of two integer array elements
  * of a swap
- * @array: the array
- * @size: size of array
  * @a: first(left) variable
  * @b: second(right) variable
  *
  * Return: nothing
  */
-void swap_ints(int *array, size_t size, int *a, int *b)
+void swap_ints(int *a, int *b)
 {
 	int t;
 
-	if (*a == *b)
-		return;
 	t = *a;
 	*a = *b;
 	*b = t;
-	print_array(array, size);
 }
 
 
@@ -56,7 +51,10 @@ void heap_sort(int *array, size_t size)
 		if (start > 0)
 			start--;
 		else
-			swap_ints(array, size, &array[--end], &array[0]);
+		{
+			swap_ints(&array[--end], &array[0]);
+			print_array(array, size);
+		}
 		root = start;
 		while (i_left_child(root) < end)
 		{
@@ -65,7 +63,8 @@ void heap_sort(int *array, size_t size)
 				child++;
 			if (array[root] < array[child])
 			{
-				swap_ints(array, size, &array[root], &array[child]);
+				swap_ints(&array[root], &array[child]);
+				print_array(array, size);
 				root = child;
 			}
 			else
