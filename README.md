@@ -84,9 +84,6 @@
 #### Tasks
 
 1. 0.Bubble sort: write a function that sorts an array of integers in ascending order using the *Bubble sort algorithm*
-2. 1.Insertion sort list:
-3. 2.Selection sort: write a function that sorts an array of integers in ascending order using the *Selection sort* algorithm
-*
 2. 1.Insertion sort list: write a function that sorts a doubly linked list of integers in ascending order using the *Insertion sort* algorithm
 3. 2.Selection sort: write a function that sorts an array of integers in ascending order using the *Selection sort* algorithm
 4. 3.Quick sort: write a function that sorts an array of integers in ascending order using the *Quick sort* algorithm
@@ -94,7 +91,8 @@
 6. 5.Cocktail sort:
 7. 6.Counting sort: Write a function that sorts an array of integers in 
 ascending order using the Counting sort algorithm
-8. 7.
+8. 7.Merge sort: top-down merge sort algorithm implementation
 9. 8.Heap sort: write a function that sorts an array of integers in ascending order using the Heap sort algorithm
 10. 9.Radix sort: write a function that sorts an array of integers in ascending order using the Radix sort algorithm (LSD)
+
 
