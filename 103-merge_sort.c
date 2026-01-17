@@ -2,71 +2,81 @@
 #include <stdlib.h>
 
 /**
- * merge - merges two sorted arrays into one larger array
+ * merge - merges two sorted subarrays into a larger sorted array
  * @array: the original array being sorted
- * @left: the left sub-array after division
- * @l_len: size of left
- * @right: the right sub-array after division
- * @r_len: size of right
+ * @buffer: temporary buffer for merging
+ * @left: start index of the left subarray
+ * @mid: end index of the left subarray (start of right subarray)
+ * @right: end index of the right subarray
  */
-void merge(int *array, int *left, size_t l_len, int *right, size_t r_len)
+void merge(int *array, int *buffer, size_t left, size_t mid, size_t right)
 {
-    size_t i, j, k;
+	size_t i = left, j = mid, k = left;
 
-    i = j = k = 0;
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(array + left, mid - left);
+	printf("\n[right]: ");
+	print_array(array + mid, right - mid);
+	printf("\n");
 
-    printf("Merging...\n");
-    printf("[left]: ");
-    print_array(left, l_len);
-    printf("\n[right]: ");
-    print_array(right, r_len);
-    printf("\n");
+	while (i < mid && j < right)
+	{
+		if (array[i] <= array[j])
+			buffer[k++] = array[i++];
+		else
+			buffer[k++] = array[j++];
+	}
+	while (i < mid)
+		buffer[k++] = array[i++];
+	while (j < right)
+		buffer[k++] = array[j++];
 
-    while (i < l_len && j < r_len)
-    {
-        if (left[i] <= right[j])
-            array[k++] = left[i++];
-        else
-            array[k++] = right[j++];
-    }
-    while (i < l_len)
-        array[k++] = left[i++];
-    while (j < r_len)
-        array[k++] = right[j++];
+	for (i = left; i < right; i++)
+		array[i] = buffer[i];
 
-    printf("[Done]: ");
-    print_array(array, l_len + r_len);
-    printf("\n");
+	printf("[Done]: ");
+	print_array(array + left, right - left);
+	printf("\n");
 }
 
 /**
- * merge_sort - sorts an array of integers in ascending order using the
- * merge sort algorithm (top-down)
- * @array: the array given to sort
+ * merge_sort_helper - recursive helper for merge sort
+ * @array: the array to sort
+ * @buffer: temporary buffer for merging
+ * @left: start index of the subarray
+ * @right: end index of the subarray
+ */
+void merge_sort_helper(int *array, int *buffer, size_t left, size_t right)
+{
+	size_t mid;
+
+	if (right - left <= 1)
+		return;
+
+	mid = left + (right - left) / 2;
+	merge_sort_helper(array, buffer, left, mid);
+	merge_sort_helper(array, buffer, mid, right);
+	merge(array, buffer, left, mid, right);
+}
+
+/**
+ * merge_sort - sorts an array of integers in ascending order using
+ * the top-down merge sort algorithm
+ * @array: the array to sort
  * @size: length (size) of array
  */
 void merge_sort(int *array, size_t size)
 {
-    size_t mid, i;
-    int *buffer;
+	int *buffer;
 
-    if (size <= 1)
-        return;
+	if (size <= 1)
+		return;
 
-    mid = size / 2;
-    buffer = malloc(size * sizeof(int));
-    if (!buffer)
-        return; /* Handle allocation failure */
+	buffer = malloc(size * sizeof(int));
+	if (!buffer)
+		return;
 
-    for (i = 0; i < mid; i++)
-        buffer[i] = array[i];
-    for (i = mid; i < size; i++)
-        buffer[i] = array[i];
-
-    merge_sort(buffer, mid);
-    merge_sort(buffer + mid, size - mid);
-
-    merge(array, buffer, mid, buffer + mid, size - mid);
-    free(buffer);
+	merge_sort_helper(array, buffer, 0, size);
+	free(buffer);
 }
-
